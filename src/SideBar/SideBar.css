@@ -1,0 +1,24 @@
+.menu-item-logo {
+  padding-left: none;
+}
+
+.menu-item-logo-img {
+  height: 50px;
+  padding-left: calc(50% - 25px);
+}
+
+.menu-item-logo-img.collapsed {
+  display: none;
+} 
+
+.ant-layout-sider {
+  background-color: #202020;
+}
+
+.ant-layout-sider-trigger {
+  background-color: #101010;
+}
+
+@media all and (max-width: 600px) {
+
+}
