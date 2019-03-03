@@ -1,31 +1,8 @@
-.App {
-  text-align: center;
-}
-
-.Layout {
-  min-height: 100vh; 
-}
-
-.LayoutContent {
-  margin: 0 16px;
-}
-
-.Footer {
-  text-align: center;
-  background: #202020;
-  color: #eee;
-}
-
 .app-header {
   background-color: #000000;
   padding: 0 20px;
   height: 52px;
   line-height: initial;
-}
-
-.ant-layout-footer {
-  height: 50px;
-  padding: 15px 50px;
 }
 
 .header-logo {
@@ -38,10 +15,6 @@
 }
 
 @media all and (max-width: 600px) {
-  .sidebar {
-    display: none;
-  }
-
   .header-logo {
     display: initial;
   }

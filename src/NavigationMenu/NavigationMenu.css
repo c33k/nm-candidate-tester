@@ -1,0 +1,8 @@
+.NavigationMenu > .menu-item-logo {
+  height: 50px;
+  padding-left: calc(50% - 25px) !important;
+}
+
+.NavigationMenu .menu-item-logo-img {
+  height: 100%;
+}

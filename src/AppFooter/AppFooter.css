@@ -1,0 +1,29 @@
+.AppFooter {
+  text-align: center;
+  background: #202020;
+  color: #eee;
+  padding: initial;
+}
+
+.footer-regular-content {
+  display: none;
+}
+
+.AppFooter > .NavigationMenu {
+  display: block;
+} 
+
+@media all and (min-width: 600px) {
+  .AppFooter {
+    padding: 0 50px;
+    line-height: 48px;
+  }
+
+  .footer-regular-content {
+    display: block;
+  }
+
+  .AppFooter > .NavigationMenu {
+    display: none;
+  }
+}
