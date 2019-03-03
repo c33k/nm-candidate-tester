@@ -5,17 +5,13 @@ import './SideBar.css';
 const { Sider } = Layout;
 
 export default function SideBar(props) {
-  const [collapsed, setCollapsed] = useState(false);
-  const classLogoImg = `menu-item-logo-img ${collapsed ? ' collapsed' : ''}`;
-  const handleOnCollapse = collapsed => setCollapsed(collapsed);
+  const state = useCollapsed(false);
+  const classLogoImg = `menu-item-logo-img ${
+    state.collapsed ? ' collapsed' : ''
+  }`;
 
   return (
-    <Sider
-      className='sidebar'
-      collapsible
-      collapsed={collapsed}
-      onCollapse={handleOnCollapse}
-    >
+    <Sider className='sidebar' collapsible {...state}>
       <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
         <Menu.Item to='/' key='0' className='menu-item-logo'>
           <img className={classLogoImg} src='logo.png' alt='Nogin Media Logo' />
@@ -39,4 +35,13 @@ export default function SideBar(props) {
       </Menu>
     </Sider>
   );
+}
+
+function useCollapsed(initialValue) {
+  const [collapsed, setCollapsed] = useState(initialValue);
+
+  return {
+    collapsed,
+    onCollapse: collapsed => setCollapsed(collapsed)
+  };
 }

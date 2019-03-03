@@ -2,10 +2,25 @@
   text-align: center;
 }
 
+.Layout {
+  min-height: 100vh; 
+}
+
+.LayoutContent {
+  margin: 0 16px;
+}
+
+.Footer {
+  text-align: center;
+  background: #202020;
+  color: #eee;
+}
+
 .app-header {
   background-color: #000000;
-  padding: 0;
+  padding: 0 20px;
   height: 52px;
+  line-height: initial;
 }
 
 .ant-layout-footer {
@@ -13,8 +28,33 @@
   padding: 15px 50px;
 }
 
+.header-logo {
+  display: none;
+  height: 100%;
+}
+
+.header-logo > img {
+  height: 100%;
+}
+
 @media all and (max-width: 600px) {
   .sidebar {
     display: none;
+  }
+
+  .header-logo {
+    display: initial;
+  }
+
+  .header-logo.hide {
+    display: none;
+  }
+
+  .SearchInput {
+    width: 50%;
+  }
+
+  .SearchInput.expanded {
+    width: 100%;
   }
 }
