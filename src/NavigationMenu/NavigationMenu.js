@@ -16,12 +16,12 @@ export default function NavigationMenu(props) {
         {props.mode === 'horizontal' ? '' : <span>Home</span>}
       </Menu.Item>
       <Menu.Item key='2'>
-        <Icon type='user' />
-        {props.mode === 'horizontal' ? '' : <span>Profile</span>}
-      </Menu.Item>
-      <Menu.Item key='3'>
         <Icon type='bars' />
         {props.mode === 'horizontal' ? '' : <span>EPG</span>}
+      </Menu.Item>
+      <Menu.Item key='3'>
+        <Icon type='user' />
+        {props.mode === 'horizontal' ? '' : <span>Profile</span>}
       </Menu.Item>
     </Menu>
   );
