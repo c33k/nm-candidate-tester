@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/NoriginMedia/candidate-tester/issues"
   },
-  "homepage": "https://github.com/NoriginMedia/candidate-tester#readme",
+  "homepage": ".",
   "eslintConfig": {
     "extends": "react-app"
   },

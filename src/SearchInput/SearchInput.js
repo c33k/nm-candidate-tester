@@ -3,7 +3,6 @@ import { Button, Input, Row } from 'antd';
 import './SearchInput.css';
 
 export default function SearchInput(props) {
-  const { Search } = Input;
   const inputSearchEl = useRef(null);
   const expanded = useExpanded(false, props.changed, inputSearchEl);
 
@@ -29,12 +28,11 @@ export default function SearchInput(props) {
         icon='search'
         onClick={expanded.handleExpandClick}
       />
-      <Search
+      <Input
         ref={inputSearchEl}
         className={searchInputClassName}
         placeholder='Search program...'
         onBlur={expanded.handleInputBlur}
-        onSearch={value => console.log(value)} //TODO: implement search
       />
     </Row>
   );
@@ -62,7 +60,7 @@ function useExpanded(initialValue, changed, inputSearchEl) {
 
   return {
     value: expanded,
-    handleExpandClick,
-    handleInputBlur
+    handleInputBlur,
+    handleExpandClick
   };
 }

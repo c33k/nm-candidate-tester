@@ -24,7 +24,7 @@
   }
 
   .SearchInput {
-    width: 50%;
+    width: calc(50% - 25px);
   }
 
   .SearchInput.expanded {

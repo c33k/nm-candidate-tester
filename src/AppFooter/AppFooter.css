@@ -10,8 +10,9 @@
 }
 
 .AppFooter > .NavigationMenu {
-  display: block;
-} 
+  display: flex;
+  justify-content: space-around;
+}
 
 @media all and (min-width: 600px) {
   .AppFooter {
