@@ -1,21 +1,36 @@
 @hour-width: 300px;
+@epg-border-color: #444;
+@epg-header-height: 100px;
 
 .EPG {
   position: relative;
-  background-color: #202020;
+  background-color: @gray;
   width: 100%;
   min-height: 300px;
 
+  .currenttime-marker {
+    position: absolute;
+    left: (@hour-width / 2);
+    width: 2px;
+    height: calc(~'100% - @{epg-header-height}');
+    background-color: @primary-color;
+    z-index: 2;
+  }
+
+  > .EPGHeader {
+    height: @epg-header-height;
+  }
+
   > .epg-body {
+    position: relative;
     height: 100%;
     min-width: 100%;
-    overflow-x: scroll;
     overflow-y: hidden;
 
     > .epg-header-hours {
-      width: (24 * @hour-width);
-      background-color: #202020;
-      border-bottom: 1px solid #444444;
+      width: (27 * @hour-width);
+      background-color: @gray;
+      border-bottom: 1px solid @epg-border-color;
       display: flex;
       align-content: center;
 
@@ -23,20 +38,20 @@
         position: relative;
         width: 300px;
         height: 50px;
-        border-right: 1px solid #444444;
+        border-right: 1px solid @epg-border-color;
         text-align: center;
         font-size: 16px;
         line-height: 50px;
-      }
 
-      .div-hour:after {
-        content: "|";
+        &:after {
+          content: '|';
           position: absolute;
           left: 50%;
-          color: #444;
+          color: @text-color;
           bottom: 0;
-          line-height: 15px;
-          font-size: 15px;
+          line-height: 12px;
+          font-size: 12px;
+        }
       }
     }
   }

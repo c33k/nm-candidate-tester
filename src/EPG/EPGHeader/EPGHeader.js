@@ -12,18 +12,18 @@ export default function EPGHeader() {
   );
 }
 
-function getDay(offset) {
+function getDay(dayOffset) {
   let day = new Date();
-  day.setDate(day.getDate() + offset);
+  day.setDate(day.getDate() + dayOffset);
 
   const weekDay = day.toString().split(' ')[0];
   const dayOfMonth = ('0' + day.getDate()).slice(-2);
   const month = ('0' + (day.getMonth() + 1)).slice(-2);
 
-  const classNameBtn = `btn-day ${offset === 0 ? 'selected' : ''}`
+  const classNameBtn = `btn-day ${dayOffset === 0 ? 'selected' : ''}`
 
   return (
-    <Button type='ghost' key={offset} className={classNameBtn}>
+    <Button type='ghost' key={dayOffset} className={classNameBtn}>
       <span>{weekDay}</span>
       <br />
       <span>{`${dayOfMonth}.${month}.`}</span>
