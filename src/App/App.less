@@ -1,0 +1,59 @@
+@app-header-height: 52px;
+@app-footer-height: 46px;
+@app-content-offset: @app-footer-height + @app-header-height;
+
+.App {
+  text-align: center;
+}
+
+.Layout {
+  min-height: 100vh;
+}
+
+.page-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.AppHeader {
+  height: @app-header-height;
+}
+
+.AppFooter {
+  width: 100%;
+  max-height: @app-footer-height;
+}
+
+.LayoutContent {
+  position: relative;
+  height: 100%;
+  margin: 0 16px;
+  overflow: hidden;
+}
+
+@media all and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .LayoutContent {
+    top: @app-header-height;
+  }
+
+  .AppHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .AppFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: @app-footer-height;
+    z-index: 3;
+  }
+}

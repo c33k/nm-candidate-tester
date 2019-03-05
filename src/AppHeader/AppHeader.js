@@ -12,7 +12,7 @@ export default function AppHeader() {
   }
 
   return (
-    <Header className='app-header'>
+    <Header className='AppHeader'>
       <Row type='flex' justify='end' align='middle' style={{ height: '100%' }}>
         <a href='/' className={`header-logo ${hideLogo ? 'hide' : ''}`}>
           <img src='logo.png' alt='Nogin Media Logo' />
