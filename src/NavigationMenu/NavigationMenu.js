@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
-import './NavigationMenu.css';
+import './NavigationMenu.less';
 
 export default function NavigationMenu(props) {
   return (

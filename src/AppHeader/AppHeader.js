@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Layout, Row } from 'antd';
 import SearchInput from '../SearchInput/SearchInput';
-import './AppHeader.css';
+import './AppHeader.less';
 
 export default function AppHeader() {
   const [hideLogo, setHideLogo] = useState(false);

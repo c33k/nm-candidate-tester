@@ -1,0 +1,49 @@
+@hour-width: 300px;
+
+.EPG {
+  position: relative;
+  background-color: #202020;
+  width: 100%;
+  min-height: 300px;
+
+  > .epg-body {
+    height: 100%;
+    min-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    > .epg-header-hours {
+      width: (24 * @hour-width);
+      background-color: #202020;
+      border-bottom: 1px solid #444444;
+      display: flex;
+      align-content: center;
+
+      .div-hour {
+        position: relative;
+        width: 300px;
+        height: 50px;
+        border-right: 1px solid #444444;
+        text-align: center;
+        font-size: 16px;
+        line-height: 50px;
+      }
+
+      .div-hour:after {
+        content: "|";
+          position: absolute;
+          left: 50%;
+          color: #444;
+          bottom: 0;
+          line-height: 15px;
+          font-size: 15px;
+      }
+    }
+  }
+}
+
+.btn-now {
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+}

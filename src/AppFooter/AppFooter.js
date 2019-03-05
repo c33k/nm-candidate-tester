@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import NavigationMenu from '../NavigationMenu/NavigationMenu';
-import './AppFooter.css';
+import './AppFooter.less';
 
 export default function AppFooter(props) {
   const { Footer } = Layout;

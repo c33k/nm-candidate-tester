@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Layout } from 'antd';
 import NavigationMenu from '../NavigationMenu/NavigationMenu';
-import './SideBar.css';
+import './SideBar.less';
 
 const { Sider } = Layout;
 

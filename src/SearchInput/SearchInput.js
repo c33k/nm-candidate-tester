@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button, Input, Row } from 'antd';
-import './SearchInput.css';
+import './SearchInput.less';
 
 export default function SearchInput(props) {
   const inputSearchEl = useRef(null);

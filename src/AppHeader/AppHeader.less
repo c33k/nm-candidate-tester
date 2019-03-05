@@ -8,26 +8,26 @@
 .header-logo {
   display: none;
   height: 100%;
-}
 
-.header-logo > img {
-  height: 100%;
+  > img {
+    height: 100%;
+  }
 }
 
 @media all and (max-width: 600px) {
   .header-logo {
     display: initial;
-  }
 
-  .header-logo.hide {
-    display: none;
+    &.hide {
+      display: none;
+    }
   }
 
   .SearchInput {
     width: calc(50% - 25px);
-  }
 
-  .SearchInput.expanded {
-    width: 100%;
+    &.expanded {
+      width: 100%;
+    }
   }
 }

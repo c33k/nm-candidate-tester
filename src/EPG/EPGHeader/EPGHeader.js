@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Col, Row } from 'antd';
-import './EPGHeader.css';
+import './EPGHeader.less';
 
 export default function EPGHeader() {
   return (
