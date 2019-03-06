@@ -31,12 +31,13 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "nm-mock-api": "git+https://github.com/NoriginMedia/mock-api.git#cloudberry",
     "antd": "^3.13.6",
+    "axios": "^0.18.0",
     "babel-plugin-import": "^1.11.0",
     "customize-cra": "^0.2.12",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "nm-mock-api": "git+https://github.com/NoriginMedia/mock-api.git#cloudberry",
     "react": "^16.8.3",
     "react-app-rewired": "^2.1.0",
     "react-dom": "^16.8.3",

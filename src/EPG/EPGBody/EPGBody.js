@@ -2,21 +2,21 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from 'antd';
 import './EPGBody.less';
 
-export default function EPGBody() {
+export default function EPGBody(props) {
   const refBody = useRef(null);
-  const autoScrollState = useAutoScroll(true, refBody);
-
+  const scrollState = useAutoScroll(true, refBody);
+  
   return (
     <section
       className='epg-container'
       ref={refBody}
-      onScroll={autoScrollState.handleOnScroll}
-    >
+      onScroll={scrollState.handleOnScroll}
+    >      
       <header className='epg-header-hours'>{renderHourDivs()}</header>
-      {renderNowButton(autoScrollState)}
-      <div style={{height: 500, width: '100%'}}>
-
-      </div>
+      {renderNowButton(scrollState)}
+      {props.channels.map(channel => {
+        return <h1 key={channel.id}>{channel.title}</h1>;
+      })}
     </section>
   );
 }
@@ -35,16 +35,16 @@ function renderNowButton(state) {
   );
 }
 
-function useAutoScroll(initialValue, refBody) {
+function useAutoScroll(initialValue, refToScrollableArea) {
   const [autoScrolling, setAutoScrolling] = useState(initialValue);
 
   useEffect(() => {
     let autoScrollingInterval = null;
 
     if (autoScrolling) {
-      scrollToCurrentTime(refBody);
+      scrollToCurrentTime(refToScrollableArea);
       autoScrollingInterval = setInterval(() => {
-        scrollToCurrentTime(refBody);
+        scrollToCurrentTime(refToScrollableArea);
       }, 1000);
     }
 
@@ -58,7 +58,7 @@ function useAutoScroll(initialValue, refBody) {
   const handleOnScroll = () => {
     let nowScrollPosition = getScrollPositionForDate(new Date());
 
-    if (Math.abs(nowScrollPosition - refBody.current.scrollLeft) > 20) {
+    if (Math.abs(nowScrollPosition - refToScrollableArea.current.scrollLeft) > 20) {
       setAutoScrolling(false);
     }
   };

@@ -4,7 +4,6 @@
   position: relative;
   background-color: @gray;
   width: 100%;
-  min-height: 300px;
 
   > .EPGHeader {
     height: @epg-header-height;
@@ -12,14 +11,14 @@
 
   > .currenttime-marker {
     position: absolute;
-    left: 150px;   
+    left: 150px;
     width: 1px;
     height: calc(~'100% - @{epg-header-height}');
     background-color: @primary-color;
     z-index: 2;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       width: 3px;
@@ -28,5 +27,15 @@
       border-radius: 5px;
       left: -1px;
     }
+  }
+}
+
+.error-alert {
+  color: black;
+}
+
+.epg-skeleton {
+  h3, li {
+    background-color: @gray !important;
   }
 }
