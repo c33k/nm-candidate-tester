@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from 'antd';
 import EPGList from '../EPGList/EPGList';
+import { getScrollPositionForDate } from '../hour-helper';
 import './EPGBody.less';
 
 export default function EPGBody(props) {
@@ -9,7 +10,7 @@ export default function EPGBody(props) {
 
   return (
     <section
-      className='epg-container'
+      className='EPGBody'
       ref={refBody}
       onScroll={scrollState.handleOnScroll}
     >
@@ -87,8 +88,4 @@ function renderHourDivs() {
 
 function scrollToCurrentTime(refBody) {
   refBody.current.scrollLeft = getScrollPositionForDate(new Date());
-}
-
-function getScrollPositionForDate(date) {
-  return date.getHours() * 300 + (300 * date.getMinutes()) / 60;
 }

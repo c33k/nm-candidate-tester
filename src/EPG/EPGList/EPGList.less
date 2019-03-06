@@ -2,9 +2,16 @@
 
 .EPGList {
   .epg-list-item {
+    position: relative;
     height: @epg-list-height;
     width: @epg-width;
-    border-bottom: 1px solid @epg-border-color;;
+    border-bottom: 1px solid @epg-border-color;
+  }
+
+  .Schedule {
+    position: absolute; 
+    height: 100%;
+    border: 1px solid @epg-border-color;
   }
 }
 
