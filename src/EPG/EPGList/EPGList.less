@@ -1,0 +1,25 @@
+@import '../variables.less';
+
+.EPGList {
+  .epg-list-item {
+    height: @epg-list-height;
+    width: @epg-width;
+    border-bottom: 1px solid @epg-border-color;;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .EPGList {
+    .epg-list-item {
+      width: @epg-width-smallscreens;
+    }
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .EPGList {
+    .epg-list-item {
+      width: @epg-width-bigscreens;
+    }
+  }
+}

@@ -1,14 +1,12 @@
-@hour-width: 300px;
-@epg-border-color: #444;
+@import '../variables.less';
 
 .epg-container {
   position: relative;
   height: 100%;
-  min-width: 100%;
   overflow: auto;
 
   > .epg-header-hours {
-    width: (27 * @hour-width);
+    width: @epg-width;
     background-color: @gray;
     border-bottom: 1px solid @epg-border-color;
     display: flex;
@@ -16,8 +14,8 @@
 
     .div-hour {
       position: relative;
-      width: 300px;
-      height: 50px;
+      width: @epg-hour-width;
+      height: @epg-hour-height;
       border-right: 1px solid @epg-border-color;
       text-align: center;
       font-size: 16px;
@@ -47,4 +45,30 @@
     right: 50px;
     bottom: 70px;
   }
+
+  .epg-container {
+    > .epg-header-hours {
+      width: @epg-width-smallscreens
+    }
+  }
 }
+
+/*This is a MVP solution.
+This allows the EPG to be scrolled to 23:59 on bigger screens.
+Can be improved by changing the way we scroll the content.
+One solution would be: ff scrolls reaches end of screen, 
+start moving the marker until the limit. When use scrolls back,
+marker becomes fixed again and we resume scrolling the content itself. 
+This would improve UX for bigger screens (assuming we don't load EPG for next
+day - horizontal infinite scroll)*/
+@media all and (min-width: 1280px) {
+  .epg-container {
+    > .epg-header-hours {
+      width: @epg-width-bigscreens;
+    }
+  }
+}
+
+
+
+

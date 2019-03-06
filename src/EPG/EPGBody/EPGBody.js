@@ -1,22 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from 'antd';
+import EPGList from '../EPGList/EPGList';
 import './EPGBody.less';
 
 export default function EPGBody(props) {
   const refBody = useRef(null);
   const scrollState = useAutoScroll(true, refBody);
-  
+
   return (
     <section
       className='epg-container'
       ref={refBody}
       onScroll={scrollState.handleOnScroll}
-    >      
+    >
       <header className='epg-header-hours'>{renderHourDivs()}</header>
       {renderNowButton(scrollState)}
-      {props.channels.map(channel => {
-        return <h1 key={channel.id}>{channel.title}</h1>;
-      })}
+      <EPGList channels={props.channels} />
     </section>
   );
 }
@@ -26,13 +25,15 @@ function renderNowButton(state) {
     state.setAutoScrolling(true);
   };
 
-  return state.autoScrolling ? (
-    ''
-  ) : (
-    <Button type='primary' className='btn-now' onClick={handleClickNow}>
-      Now
-    </Button>
-  );
+  if (!state.autoScrolling) {
+    return (
+      <Button type='primary' className='btn-now' onClick={handleClickNow}>
+        Now
+      </Button>
+    );
+  }
+
+  return '';
 }
 
 function useAutoScroll(initialValue, refToScrollableArea) {
@@ -58,7 +59,9 @@ function useAutoScroll(initialValue, refToScrollableArea) {
   const handleOnScroll = () => {
     let nowScrollPosition = getScrollPositionForDate(new Date());
 
-    if (Math.abs(nowScrollPosition - refToScrollableArea.current.scrollLeft) > 20) {
+    if (
+      Math.abs(nowScrollPosition - refToScrollableArea.current.scrollLeft) > 20
+    ) {
       setAutoScrolling(false);
     }
   };

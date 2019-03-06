@@ -1,4 +1,4 @@
-@epg-header-height: 100px;
+@import './variables.less';
 
 .EPG {
   position: relative;
@@ -7,6 +7,14 @@
 
   > .EPGHeader {
     height: @epg-header-height;
+  }
+
+  > .EPGChannelLogos {
+    position: absolute;
+    width: 100px;
+    top: 150px;
+    left: 0;
+    box-shadow: 10px 5px 35px -8px rgba(0, 0, 0, 0.62);
   }
 
   > .currenttime-marker {
@@ -35,7 +43,8 @@
 }
 
 .epg-skeleton {
-  h3, li {
+  h3,
+  li {
     background-color: @gray !important;
   }
 }

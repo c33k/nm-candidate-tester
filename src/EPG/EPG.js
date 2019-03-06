@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Alert, Skeleton } from 'antd';
 import EPGHeader from './EPGHeader/EPGHeader';
 import EPGBody from './EPGBody/EPGBody';
+import EPGChannelLogos from './EPGChannelLogos/EPGChannelLogos';
 import './EPG.less';
 
 export default function EPG() {
@@ -28,6 +29,7 @@ export default function EPG() {
     <div className='EPG'>
       <EPGHeader />
       <div className='currenttime-marker' />
+      <EPGChannelLogos channels={epg.data.channels}/>
       <EPGBody channels={epg.data.channels} />
     </div>
   );
