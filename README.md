@@ -66,6 +66,17 @@ To build for production, simply run
 
 Wherever you deploy this application, you can add a .env file to control - like in dev - where the app should point to get it's data.
 
+To quickly test if the build worked, you can try to run a local server just to test it. 
+To do this, install the **http-server** globally (or run it with npx), go to the build directory (which I added to the .gitignores file) and run...
+
+```
+-> http-server
+```
+
+Then, open the URL provided by http-server and check the production build.
+
+obs.: that's assuming you have MOCK API running locally.
+
 
 ### Some Considerations
 * I decided to use React Hooks in this app and also, only functional components. There are no Class components here.
