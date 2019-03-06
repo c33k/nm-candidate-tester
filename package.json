@@ -1,6 +1,6 @@
 {
   "name": "nm-candidate-tester",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "This is intended to used as instructions for completing the Norigin Media testing task for new candidates",
   "repository": {
     "type": "git",
