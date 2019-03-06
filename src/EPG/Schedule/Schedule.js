@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Schedule.less';
 
 export default function Schedule(props) {
@@ -10,8 +11,10 @@ export default function Schedule(props) {
 
   return (
     <div style={{ width, left }} className={scheduleClasses}>
-      <h1>{schedule.title}</h1>
-      <span>{getFormatedHours(schedule)}</span>
+      <Link to={`/program/${schedule.id}`}>
+        <h1>{schedule.title}</h1>
+        <span>{getFormatedHours(schedule)}</span>
+      </Link>
     </div>
   );
 }

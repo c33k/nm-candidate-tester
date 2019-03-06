@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from 'antd';
 import EPGList from '../EPGList/EPGList';
-import { getScrollPositionForDate } from '../hour-helper';
+import { getScrollPositionForDate } from '../../hour-helper';
 import './EPGBody.less';
 
 export default function EPGBody(props) {

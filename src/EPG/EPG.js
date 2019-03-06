@@ -40,7 +40,7 @@ function useEPGState() {
   const [error, setError] = useState({ status: false });
   const [data, setData] = useState({ channels: [] });
 
-  const EPG_URL = 'http://localhost:1337/epg'; //TODO: MAKE IT CONFIGURABLE PER ENVIRONMENT
+  const EPG_URL = `${process.env.REACT_APP_BASE_URL}/epg`;
   const success = res => {
     setData(res.data);
     setLoading(false);

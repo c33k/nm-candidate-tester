@@ -1,0 +1,59 @@
+.ProgramMeta {
+  position: relative;
+  height: 130px;
+  color: white;
+
+  h1 {
+    color: white;
+    margin: 0;
+  }
+
+  .channelLogo {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;  
+  }
+
+  .meta {
+    height: 100%;    
+    font-size: 18px;    
+
+    .channel-title {
+      font-size: 24px;
+      line-height: 24px;      
+    }
+
+    .program-time-exhibition {
+      color: #aaaaaa;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+
+  .genre {
+    margin-left: 10px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .ProgramMeta { 
+    height: 100px;
+    
+    .meta {
+      height: 100%;
+      color: white;
+      font-size: 12px;    
+  
+      .channel-title {
+        font-size: 14px;
+        line-height: 14px;      
+      }
+
+      .program-time-exhibition {
+        font-size: 12px;
+      }
+    }
+  }
+  
+}

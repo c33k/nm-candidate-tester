@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, Icon } from 'antd';
 import './NavigationMenu.less';
 
@@ -12,16 +13,22 @@ export default function NavigationMenu(props) {
     >
       {getLogo(props.logo)}
       <Menu.Item key='1'>
-        <Icon type='home' />
-        {props.mode === 'horizontal' ? '' : <span>Home</span>}
+        <Link to='/'>
+          <Icon type='home' />
+          {props.mode === 'horizontal' ? '' : <span>Home</span>}
+        </Link>
       </Menu.Item>
       <Menu.Item key='2'>
-        <Icon type='bars' />
-        {props.mode === 'horizontal' ? '' : <span>EPG</span>}
+        <Link to='/'>
+          <Icon type='bars' />
+          {props.mode === 'horizontal' ? '' : <span>EPG</span>}
+        </Link>
       </Menu.Item>
       <Menu.Item key='3'>
-        <Icon type='user' />
-        {props.mode === 'horizontal' ? '' : <span>Profile</span>}
+        <Link to='/'>
+          <Icon type='user' />
+          {props.mode === 'horizontal' ? '' : <span>Profile</span>}
+        </Link>
       </Menu.Item>
     </Menu>
   );
@@ -33,7 +40,7 @@ function getLogo(hasLogo) {
       <Menu.Item to='/' key='0' className='menu-item-logo'>
         <img
           className='menu-item-logo-img'
-          src='logo.png'
+          src='/logo.png'
           alt='Nogin Media Logo'
         />
       </Menu.Item>

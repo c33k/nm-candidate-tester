@@ -1,0 +1,36 @@
+@import '../variables.less';
+
+.Program {
+  height: calc(~'100% - @{app-footer-height}');
+
+  .ProgramHeader {
+    height: 400px;
+  } 
+
+  .ProgramMeta {    
+    width: 80%;
+    margin: auto;
+  } 
+
+  .program-content {
+    height: auto;
+    width: 70%;
+    margin: auto;
+  }
+
+  .seasons-container {
+    min-height: 300px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .Program {
+    .ProgramMeta {    
+      width: 100%;
+    } 
+
+    .program-content {
+      width: 100%;
+    }
+  }
+}

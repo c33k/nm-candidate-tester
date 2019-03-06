@@ -3,7 +3,7 @@ import Schedule from '../Schedule/Schedule';
 import {
   calculateScheduleStartPosition,
   calculateScheduleWidth
-} from '../hour-helper';
+} from '../../hour-helper';
 import './EPGList.less';
 
 export default function EPGList(props) {

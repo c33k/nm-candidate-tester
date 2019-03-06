@@ -1,6 +1,4 @@
-@app-header-height: 52px;
-@app-footer-height: 46px;
-@app-content-offset: @app-footer-height + @app-header-height;
+@import '../variables.less';
 
 .App {
   text-align: center;
@@ -32,12 +30,12 @@
 }
 
 @media all and (max-width: 600px) {
-  .sidebar {
-    display: none;
+  .EPG {
+    top: @app-header-height;
   }
 
-  .LayoutContent {
-    top: @app-header-height;
+  .sidebar {
+    display: none;
   }
 
   .AppHeader {
