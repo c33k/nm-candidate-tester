@@ -24,7 +24,7 @@ export default function ProgramHeader(props) {
     return (
       <header className='ProgramHeader'>
         <YouTube
-          videoId={process.env.REACT_APP_YOUTUBE_VIDEO_ID} //Hardcoded Vikings trailer
+          videoId={process.env.REACT_APP_YOUTUBE_VIDEO_ID} //Hardcoded Vikings trailer just to showcase UI
           opts={opts}
           onReady={_onReady}
         />
