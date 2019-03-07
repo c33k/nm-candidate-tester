@@ -1,80 +1,113 @@
-## Candidate-Tester
-This Repo is intended to instruct new Frontend developer (Native & Web) candidates on the steps to follow for completing the Norigin Media testing task.
+## NM-Candidate-Tester
+This Repo contains my code for the [Norigin Media](https://https://noriginmedia.com) test. Bellow you can find details on how to run it and how to build it for production, as well as additional information on my assumptions, decisions, packages used, etc.
 
 ---
 
-#### What we want to assess:
+### How To Install And Run?
+Assuming you already has Node in your machine...
 
-* Your coding skills.
-* Intuition for design & UX.
-* Multi Screen / Cross Browser allocations.
-* Platform, Framework & Tooling knowledge.
-* App packaging and production readiness.
+First, clone this project and run the command bellow on the root directory of the project:
 
-#### Requirements :
+```
+-> npm install 
+```
 
- * Build a single screen web or native application (**EPG Screen**) using your choice of framework / tooling
- 
-    **NOTE:** For *Web Developers*: React, Vue.js, React-Native, Vanilla JS / Typescript for example - No restrictions apply, however try to avoid using project generators / starter-kits / sample projects were possible.
-    
-    **NOTE:** For *Native Developers*: Java, Kotlin, ObjectiveC - No restrictions to tooling or frameworks apply.
- 
- * Use the designs in the `./mockups` folder to guide your work. 
- * Use **Mock-Api** package included to supply the EPG data. See `package.json`.
- * For Web developers task submission is expected to be in NPM package format (**Preferably via GitHub**) with simple steps to install and run. Pass the link to your contact with our management or your recruiter when you're done. 
- 
-    **NOTE:** For *Native Developers*: Alternative methods of submission are acceptible for Android & iOS projects.
- 
- * Task is not expected to take any more than 2 days of your time.
+This will to install all required dependencies.
 
-**NOTE:** There is no need to use this tester repo as the basis for your task. You can rework it, supply your own structure and include the libraries / dependencies however you prefer.
+To test the aplication, first run the MOCK API:
 
- * A base level of interactivity is expected regarding the progression of time and how this is refected in the EPG. For example the yellow line indicating the current program should update and change, as well as a functional auto-scroll shortcut to be triggered when pressing on the "NOW" button.
+```
+-> npm run start:mock-api:update
+```
 
-#### Cool to have (But not required and wont negatively impact assessment):
+This will let the API used by our app running. It is good to run the server separated from the UI so we can check both logs in different terminals.
 
-* Add more interactions, animations or just nail the UX.
-* Responsive layouts for multi-screen support.
-* Make performance and optimization considerations.
-* Additional screens using mock data api.
-* Additional EPG showing an alternative layout.
+obs.: If you want the MOCK API from another environment other than the local one, edit the file **.env.local** and change the **REACT_APP_BASE_URL** variable.
 
-
----
-## Design Example:
-
-We have included some mockup designs to act as a guide. You can find them in the `./mockups` folder.
-
-Example EPG design:
-
-![alt text](https://raw.githubusercontent.com/NoriginMedia/candidate-tester/master/mockups/EPG_small.png "Logo Title Text 1")
-
-
-
-NOTE: Additional screens are optional and only if you really want to impress us with your skillz (Yes.. with a Z) should you add them to your app.
-
----
-
-## Mock-API:
-
-We have provided a basic mock api to supply EPG data for this task. 
-
-This is packaged as a standard Node NPM module. To install simply run: `-> npm install` from the project root directory.
-Of course Node.JS should be installed beforehand. For Native Developers not familar with NPM here is the [NPM Documentation](https://docs.npmjs.com/getting-started/installing-node)
-
-To run the update & run mock-api server execute the command below:
+Now, open another terminal window and run:
 
 ```
 -> npm run start
 ```
-You should see the server start on port 1337.
+
+This will compile the application for development and open it on your default browser.
+
+
+### Screens Implemented
+
+Two screens were implemented: the EPG screen (main one) and the Program screen (that opens when the user clicks in a program on the EPG screen). They were implemented for basically two types of screens: big and small.
+
+In a real app, we should be more careful with all possible resolutions that are common in the marked. But for this test, I focused on big (eg. full HD monitors) and small screens (eg. iPhones).
+
+EPG (small):
+
+![EPG SMALL SCREEN](https://github.com/c33k/nm-candidate-tester/blob/master/mockups/implemented/epg_small_screen.png)
+
+Program (small):
+
+![Program SMALL SCREEN](https://github.com/c33k/nm-candidate-tester/blob/master/mockups/implemented/program_small_screen.png)
+
+EPG (big):
+
+![EPG BIG SCREEN](https://github.com/c33k/nm-candidate-tester/blob/master/mockups/implemented/epg_big_screen.png)
+
+Program (big):
+
+![PROGRAM BIG SCREEN](https://github.com/c33k/nm-candidate-tester/blob/master/mockups/implemented/program_big_screen.png)
+
+
+### Building for Production
+
+To build for production, simply run 
+
 ```
-Mock service running at http://localhost:1337
+-> npm run build
 ```
-You can now request data from the mock-api: 
-`Try It: http://localhost:1337/epg`
+
+Wherever you deploy this application, you can add a .env file to control - like in dev - where the app should point to get it's data.
+
+To quickly test if the build worked, you can try to run a local server just to test it. 
+To do this, install the **http-server** globally (or run it with npx), go to the build directory (which I added to the .gitignores file) and run...
+
+```
+-> http-server
+```
+
+Then, open the URL provided by http-server and check the production build.
+
+obs.: that's assuming you have MOCK API running locally.
 
 
-For additional information you can find the package and the documentation here: [Norigin Mock-API](https://github.com/NoriginMedia/mock-api/tree/cloudberry)
+### Some Considerations
+* I decided to use React Hooks in this app and also, only functional components. There are no Class components here.
+* I didn't use any fancy framework for state management (like Redux or Mobx) and libraries like RxJS. I tried to use as pure React as possible, since It's a small app with only two pages at the moment. 
+* I've used **create-react-app** just to create the basic project without components for me. I implemented the whole EPG component and all the application.
+* I used (Ant Design)[https://ant.design/] to leverage the grid system and, most important, get basic icons for the application.
+* The EPG is scrolled horizontally automatically. The "now" button is displayed only when the user scrolls the EPG manually, which will cancel the auto-scrolling. The auto-scrolling is resumed when the user presses the "now" button. 
+* The program screen is opened when the user clicks in one of the programs on the EPG. I didn't implemented the different types of programs, checking if it is in the future, live, etc. I focused more on the EPG and on a basic Program screen that has it's flaws, but can be easily solved. 
+* The MOCK API returns all programns with same ID. 
+* I've added search bar and other menu icons just to test the layout. They are not functional for now.
 
----
+
+### Some Dependencies Explained
+
+  * antd: library I used to get Icons and basic components, like button, grid system, etc.   
+  * axios: library used for the GET requests
+  * react-app-rewired: "Override create-react-app webpack configs without ejecting". I've used this with **customize-cra** to override some variables from ANTD and also to be able to load LESS files instead of basic CSS files
+  * LESS: like SASS and Stylus, it empowers CSS, giving us a flexible language to define variables that can be reused through different files, mixins and so on... ANTD uses it so I decided to keep it instead of using another similar tool
+  * react-router-dom: basic routing for the application.
+  
+  ####Dev Dependencies:
+   * prettier: used to keep consistency of code style in the team. Very useful tooling
+   * ESLint: create-react-app already brings ESLint configured with webpack.
+  
+  
+### Some Files Explained
+
+  * config.overrides.js: this is where I override basic LESS variables from ANTD custom theme (eg. primary color)
+  * prettierrc: defined some small set of rules, like like indentation, use single quotes on JSX files, etc.
+    * I could have added a pre-commit hook to run prettier before each commit. I didn't do it because I was alone and let it open for consideration. I would recommend add it.
+    
+  * .env.local: in this file I set the base URL used by our page to trigger the MOCK_API. In a production environment, we could have a file that is not in the GIT repository to point to different URLs or even add additional configurations. Check more at (DotENV)[https://www.npmjs.com/package/dotenv]. My variable has the **REACT_APP_** prefix to leverage the usage of react-app, since it already adds any variable with this prefix to the famous **process.env** variable. 
+    
+
