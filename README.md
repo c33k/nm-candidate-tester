@@ -55,6 +55,10 @@ Program (big):
 
 ![PROGRAM BIG SCREEN](https://github.com/c33k/nm-candidate-tester/blob/master/mockups/implemented/program_big_screen.png)
 
+I've added a play button into the program's page header that plays a hardcoded video from Youtube, just to showcase the UI for a video playing.
+
+![PROGRAM FROM YOUTUBE](https://github.com/c33k/nm-candidate-tester/blob/master/mockups/implemented/youtube-sample.png)
+
 
 ### Building for Production
 
@@ -96,8 +100,9 @@ obs.: that's assuming you have MOCK API running locally.
   * react-app-rewired: "Override create-react-app webpack configs without ejecting". I've used this with **customize-cra** to override some variables from ANTD and also to be able to load LESS files instead of basic CSS files
   * LESS: like SASS and Stylus, it empowers CSS, giving us a flexible language to define variables that can be reused through different files, mixins and so on... ANTD uses it so I decided to keep it instead of using another similar tool
   * react-router-dom: basic routing for the application.
+  * react-youtube: a dependency I've added just to showcase the play button in the program's header
   
-  ####Dev Dependencies:
+####Dev Dependencies:
    * prettier: used to keep consistency of code style in the team. Very useful tooling
    * ESLint: create-react-app already brings ESLint configured with webpack.
   
