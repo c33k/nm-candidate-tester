@@ -1,8 +1,10 @@
 @import '../variables.less';
 
-.Program {
+.LayoutContent {
   height: calc(~'100% - @{app-footer-height}');
+}
 
+.Program {
   .ProgramHeader {
     height: 400px;
   } 
@@ -25,6 +27,8 @@
 
 @media all and (max-width: 600px) {
   .Program {
+    padding-bottom: @app-footer-height;
+  
     .ProgramMeta {    
       width: 100%;
     } 
